@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text valign center">
+                        <span class="card-title">Trivia Question</span>
+                        <p id="question-box">Once you click start you will have 30 seconds to answer all of the questions. Your correct and incorrect score is displayed at the bottom. Along with the time remaining.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m6 answers" value="a">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">A</span>
+                            <p id="answer-1"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 answers" value="b">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">B</span>
+                            <p id="answer-2"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m6 answers" value="c">
+                        <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title">C</span>
+                                <p id="answer-3"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 answers" value="d">
+                        <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title">D</span>
+                                <p id="answer-4"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s2 m2" id="start-button-section">
+                        <a class="waves-effect waves-light btn-large blue-grey darken-1" id="start-btn">Start</a>
+                    </div>
+                    <div class="col s2 m2">
+                        <a class=" waves-effect waves-light btn-large blue-grey darken-1" id="reset-btn">Reset</a>
+                    </div>
+
+                    <div class="col s8 m8 " id="scoreboard">
+                        <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                                <span>Correct Score: <span class="score-correct">0</span></span><br>
+                                <span>Incorrect Score: <span class="score-incorrect">0</span></span>
+                                <div id="time-left">Timer:</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <script type="text/javascript " src="assets/javascript/app.js "></script>
+
+</body>
+
+</html>
