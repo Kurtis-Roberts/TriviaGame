@@ -224,7 +224,7 @@ function finalScore() {
     // $("#time-left").html("<p>Correct Score: " + correctAnswerCount + " </p>" + "<p>Incorrect Score: " + incorrectAnswerCount + " </p>")
 
     if (correctAnswerCount > 6) {
-        $("#winner-space").append("<img src='assets/images/winner-PNG-File.png' height='250px' width='375px' class='center-align img-fluid'>")
+        $("#winner-space").append("<img src='assets/images/Winner-PNG-File.png' height='250px' width='375px' class='center-align img-fluid'>")
     } else {
         $("#winner-space").append("<img src='assets/images/try-again.png' height='250px' width='375px' class='center-align img-fluid'>")
     }
