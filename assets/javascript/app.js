@@ -114,7 +114,7 @@ $("#reset-btn").on("click", resetGame);
 
 ///////////////////////// TIMER FUNCTION ////////////////////////////////
 function timer() {
-    timeCounter = 30;
+    timeCounter = 45;
     intervalId = setInterval(decrement, 1000);
 }
 
@@ -203,10 +203,33 @@ function answerCheck() {
         console.log("You Need To Start The Game First")
     }
 
-};
+
+    if (correctAnswerCount + incorrectAnswerCount === questionObjects.length) {
+        $("#time-left").text("Your Result:");
+        finalScore();
+    } else {
+
+        formFills()
+
+    }
+}
+
+
 
 // $("#reset-btn").on("click", resetGame)
+function finalScore() {
+    stop()
+    $("#score-correct").empty();
+    $("#score-incorrect").empty();
+    // $("#time-left").html("<p>Correct Score: " + correctAnswerCount + " </p>" + "<p>Incorrect Score: " + incorrectAnswerCount + " </p>")
 
+    if (correctAnswerCount > 6) {
+        $("#winner-space").append("<img src='assets/images/winner-PNG-File.png' height='250px' width='375px' class='center-align img-fluid'>")
+    } else {
+        $("#winner-space").append("<img src='assets/images/try-again.png' height='250px' width='375px' class='center-align img-fluid'>")
+    }
+    formFills();
+}
 
 ////////////////////////////// GAME RESET ////////////////////////////////
 
@@ -227,17 +250,18 @@ function resetGame() {
     $("#answer-4").html("")
     $(".score-correct").html("0")
     $(".score-incorrect").html("0")
-    $("#time-left").text("Let's play again!")
+    $("#winner-space").text("")
     $("#reset-btn").hide()
 
 
     // $("#start-btn").on("click", formFills);
     stop()
-    timeCounter = 30;
+    timeCounter = 45;
     $("#start-btn").show()
-        // $("#start-btn").on("click", formFills);
-        // $(".container").on("click", ".answers", answerCheck);
-        // $("#start-btn").on("click", timer);
+
+    // $("#start-btn").on("click", formFills);
+    // $(".container").on("click", ".answers", answerCheck);
+    // $("#start-btn").on("click", timer);
 
 
     // $("#reset-btn").on("click", function() {
@@ -254,7 +278,7 @@ function variableReset() {
     incorrectAnswerCount = 0;
     counter = 0;
     gameResetClone = $(".container").clone();
-    timeCounter = 30;
+    timeCounter = 45;
 }
 
 $(document).ready(function() {
