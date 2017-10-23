@@ -129,8 +129,7 @@ function decrement() {
     timeCounter--;
     $("#time-left").html("<h2>" + timeCounter + "</h2>");
     if (timeCounter === 0) {
-        // unanswered++
-        // // unanswered()
+
 
         stop()
         resetGame()
@@ -188,7 +187,7 @@ function answerCheck() {
 
 
 
-// $("#reset-btn").on("click", resetGame)
+
 function finalScore() {
     stop()
     $("#score-correct").empty();
