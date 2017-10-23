@@ -102,6 +102,9 @@ function formFills() {
     $("#start-btn").hide()
     answerSelected = false;
 }
+
+
+///////////////////////////// ON CLICK EVENTS //////////////////////////////
 $("#start-button-section").on("click", "#start-btn", formFills);
 $("#start-button-section").on("click", "#start-btn", timer);
 $("#start-button-section").on("click", "#start-btn", variableReset);
@@ -112,7 +115,11 @@ $(".container").on("click", ".answers", answerCheck);
 $("#reset-btn").on("click", resetGame);
 
 
+
+
 ///////////////////////// TIMER FUNCTION ////////////////////////////////
+
+
 function timer() {
     timeCounter = 45;
     intervalId = setInterval(decrement, 1000);
@@ -135,44 +142,8 @@ function stop() {
     clearInterval(intervalId);
 }
 
-// var timerId = setInterval(countdown, 1000);
 
-// function timer() {
-//     clearTimeout(timerId);
-//     clearInterval(timerId)
-//     var timeLeft = 30;
-//     var elem = document.getElementById('time-left');
-
-//     timerId = setInterval(countdown, 1000);
-
-//     function countdown() {
-//         if (timeLeft == 0) {
-//             clearTimeout(timerId);
-//             clearInterval(timerId)
-
-//         } else {
-//             elem.innerHTML = timeLeft + ' seconds remaining';
-//             timeLeft--;
-//         }
-//     }
-// myCounter = 31;
-// setInterval(function() {
-//     myCounter--;
-//     if (myCounter >= 0) {
-//         span = document.getElementById("time-left");
-//         span.innerHTML = "Timer: " + myCounter;
-//         clearInterval(myCounter);
-//     }
-//     if (myCounter === 0) {
-//         alert('Sorry, out of time');
-//         clearInterval(myCounter);
-//         return;
-//     }
-// }, 1000);
-
-
-
-/////////////////////////// RIGHT & WRONG COUNTER ////////////////////////////
+/////////////////////////// ANSWERCHECK / RIGHT & WRONG COUNTER ////////////////////////////
 
 
 function answerCheck() {
@@ -207,6 +178,7 @@ function answerCheck() {
     if (correctAnswerCount + incorrectAnswerCount === questionObjects.length) {
         $("#time-left").text("Your Result:");
         finalScore();
+
     } else {
 
         formFills()
@@ -228,6 +200,7 @@ function finalScore() {
     } else {
         $("#winner-space").append("<img src='assets/images/try-again.png' height='250px' width='375px' class='center-align img-fluid'>")
     }
+
     formFills();
 }
 
