@@ -102,9 +102,6 @@ function formFills() {
     $("#start-btn").hide()
     answerSelected = false;
 }
-
-
-///////////////////////////// ON CLICK EVENTS //////////////////////////////
 $("#start-button-section").on("click", "#start-btn", formFills);
 $("#start-button-section").on("click", "#start-btn", timer);
 $("#start-button-section").on("click", "#start-btn", variableReset);
@@ -115,11 +112,7 @@ $(".container").on("click", ".answers", answerCheck);
 $("#reset-btn").on("click", resetGame);
 
 
-
-
 ///////////////////////// TIMER FUNCTION ////////////////////////////////
-
-
 function timer() {
     timeCounter = 45;
     intervalId = setInterval(decrement, 1000);
@@ -129,10 +122,12 @@ function decrement() {
     timeCounter--;
     $("#time-left").html("<h2>" + timeCounter + "</h2>");
     if (timeCounter === 0) {
-
+        // unanswered++
+        // // unanswered()
 
         stop()
-        resetGame()
+        finalScore()
+     
     }
 }
 
@@ -141,8 +136,7 @@ function stop() {
     clearInterval(intervalId);
 }
 
-
-/////////////////////////// ANSWERCHECK / RIGHT & WRONG COUNTER ////////////////////////////
+/////////////////////////// RIGHT & WRONG COUNTER ////////////////////////////
 
 
 function answerCheck() {
@@ -169,37 +163,35 @@ function answerCheck() {
             console.log("YOU ALREADY CHOSE")
 
         }
+
+        if (correctAnswerCount + incorrectAnswerCount === questionObjects.length) {
+            $("#time-left").text("Your Result:");
+            gameStarted = false;
+            finalScore();
+        }
+
     } else {
         console.log("You Need To Start The Game First")
     }
 
 
-    if (correctAnswerCount + incorrectAnswerCount === questionObjects.length) {
-        $("#time-left").text("Your Result:");
-        finalScore();
 
-    } else {
-
-        formFills()
-
-    }
 }
 
 
 
-
+// $("#reset-btn").on("click", resetGame)
 function finalScore() {
+    gameStarted = false;
     stop()
     $("#score-correct").empty();
     $("#score-incorrect").empty();
-    // $("#time-left").html("<p>Correct Score: " + correctAnswerCount + " </p>" + "<p>Incorrect Score: " + incorrectAnswerCount + " </p>")
 
     if (correctAnswerCount > 6) {
         $("#winner-space").append("<img src='assets/images/Winner-PNG-File.png' height='250px' width='375px' class='center-align img-fluid'>")
     } else {
         $("#winner-space").append("<img src='assets/images/try-again.png' height='250px' width='375px' class='center-align img-fluid'>")
     }
-
     formFills();
 }
 
@@ -208,10 +200,8 @@ function finalScore() {
 
 function resetGame() {
     console.log("Reset Function Ran")
-        // $(".container").replaceWith(gameResetClone)
-
-
     answerSelected = true;
+    gameStarted = false;
     correctAnswerCount = 0;
     incorrectAnswerCount = 0;
     counter = 0;
@@ -224,24 +214,9 @@ function resetGame() {
     $(".score-incorrect").html("0")
     $("#winner-space").text("")
     $("#reset-btn").hide()
-
-
-    // $("#start-btn").on("click", formFills);
     stop()
     timeCounter = 45;
     $("#start-btn").show()
-
-    // $("#start-btn").on("click", formFills);
-    // $(".container").on("click", ".answers", answerCheck);
-    // $("#start-btn").on("click", timer);
-
-
-    // $("#reset-btn").on("click", function() {
-    //     $(".container").replaceWith(gameResetClone)
-    // });
-
-
-
 };
 
 function variableReset() {
